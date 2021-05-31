@@ -1,42 +1,40 @@
 
-from bottle import Bottle , static_file
+from bottle import Bottle  ,  run ,route , static_file
 from backend.logic import *
-
-rootApp = Bottle()
 
 random_question = '10- 3'
 score = 0;
 
-@rootApp.route('/')
+@route('/')
 def rootIndex():
     return 'Server is running on localhost:8080 , go to /game'
 
 # Getting static file :) 
-@rootApp.route('/game')
+@route('/game')
 def getIndexFile(): 
     return static_file('index.html' ,root="frontend");
 
 
-@rootApp.route('/css/<filename>')
+@route('/css/<filename>')
 def getIndexFile(filename): 
     return static_file(filename ,root="frontend/css");
 
-@rootApp.route('/js/<filename>')
+@route('/js/<filename>')
 def getIndexFile(filename): 
     return static_file(filename ,root="frontend/js");
 
 # For timer
-@routeApp.route('/start')
+@route('/start')
 def timer():
     # Should be on second 
-    return 30;
+    return 30
 
 # For  question
-@routeApp.route('/question')
+@route('/question')
 def timer():
     # Should be on second 
     return  prepareQuestion()
 
 
 if __name__ == '__main__':
-    rootApp.run(port=8080 ,debug=True)
+    run(port=8080 ,debug=True)
