@@ -1,5 +1,6 @@
 
 from bottle import Bottle , static_file
+from backend.logic import *
 
 rootApp = Bottle()
 
@@ -34,12 +35,8 @@ def timer():
 @routeApp.route('/question')
 def timer():
     # Should be on second 
-    return  random_question;
+    return  prepareQuestion()
 
-# For maintaing score 
-@routeApp.route('/score') 
-def score(): 
-    return score+1;
 
 if __name__ == '__main__':
     rootApp.run(port=8080 ,debug=True)

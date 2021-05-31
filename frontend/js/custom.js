@@ -1,6 +1,6 @@
 $(function(){
     //Executes when clicked button
-    $('.start-btn').on('click' , function(){
+    $('.start-button').on('click' , function(){
         $.ajax({
             url:'https://localhost:8080/start',
             method:"GET", 
